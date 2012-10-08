@@ -38,10 +38,11 @@ if (hasGetUserMedia()) {
     	video.src = window.URL.createObjectURL(stream);
 
       
-  ctx.drawImage(tache, 0, 0);
+  ctx.drawImage(tache, 200, 200);
 
-  ctx.scale(1.998, 1.65);
-  ctx.scale(-1, 1);
+     //redraw the video image and then flip
+     ctx.scale(1.998, 1.26);
+     ctx.scale(-1, 1);
 
       setInterval(function(){toCanvas();}, 1);
       localMediaStream = stream;

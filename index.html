@@ -4,20 +4,29 @@
 	<link rel="stylesheet" href="style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
-	
+	<script src="collage.js"></script>
 </head>
 <body>
-	<video id="myVideo" autoplay="" onclick="" title="Click me to see different filters" src="" class=""></video>
-	<canvas id="myCanvas" style=""></canvas>
+	<div class="hide"><video id="myVideo" autoplay="" onclick="" title="Click me to see different filters" src="" class=""></video></div>
+	<div class="mirror-container">
+		
+
+		<canvas id="myCanvas" ></canvas>
+		<div class="mirror-surround">
+			<img src="mirror.png" style="width:500px;">
+		</div>
+	</div>
 	<div class="container" >
 		<div id="mostache">
 			<img id="mostacheimage" src="mostaches/goatee.gif">
 		</div>
 	</div>
 
-	<img id="show" style="">
+	<img id="show" style="border:5px SOLID #000;">
 
 	<script type="text/javascript" src="application.js"></script>
 	<input type="submit" value="Snap!">
+
+
 </body>
 </html>
