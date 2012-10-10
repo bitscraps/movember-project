@@ -59,6 +59,10 @@ function toCanvas() {
 
   ctx.drawImage(video, -640, 20); 
 
+  ctx.scale(0.5, 0.5);
+  ctx.drawImage(tache, -670, 600);
+  ctx.scale(2, 2);
+
   document.querySelector('#show').src = canvas.toDataURL('image/webp');
 }
 
