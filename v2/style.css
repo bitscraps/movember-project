@@ -1,0 +1,22 @@
+.hide {
+	display:none;
+}
+
+.show { 
+	display:block;
+}
+
+.popup {
+	border:5px SOLID #333;
+	position:fixed;
+	top:50%;
+	left:50%;
+	width:640px;
+	height:480px;
+	margin-left:-320px;
+	margin-top:-240px;
+}
+.canvas {
+	left:50%;
+	margin-left:-640px;
+}

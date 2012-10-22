@@ -1,11 +1,9 @@
 var video = document.querySelector('video');
-var canvas = document.querySelector('canvas');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-var ctx = canvas.getContext('2d');
-var localMediaStream = null;
 
+var canvas = document.querySelector('canvas');
+var ctx = canvas.getContext('2d');
 var tache = document.querySelector('#mostacheimage');
+var localMediaStream = null;
 
 function hasGetUserMedia() {
   // Note: Opera is unprefixed.
@@ -16,34 +14,17 @@ var onFailSoHard = function(e) {
   console.log('Reeeejected!', e);
 };
 
-function snapshot() {
-
-    
-    // "image/webp" works in Chrome 18. In other browsers, this will fall back to image/png.
-    document.querySelector('img').src = canvas.toDataURL('image/webp');
-  
-}
-
 if (hasGetUserMedia()) {
   window.URL = window.URL || window.webkitURL;
   navigator.getUserMedia  = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
 
-  video = document.querySelector('video');
-  console.log(video.className);
-
   if (navigator.getUserMedia) {
-
-    console.log('load media');
     navigator.getUserMedia({audio: false, video: true}, function(stream) {
       video.src = window.URL.createObjectURL(stream);
-
-      
-  ctx.drawImage(tache, 200, 200);
-
-     //redraw the video image and then flip
-     ctx.scale(-1, 1);
-
-      setInterval(function(){toCanvas();}, 1);
+      video.width = 640;
+      video.height = 480
+      ctx.scale(-1, 1);
+      setInterval(function(){toCanvas();}, 50);
       localMediaStream = stream;
     }, onFailSoHard);
   } else {
@@ -56,15 +37,13 @@ if (hasGetUserMedia()) {
 function toCanvas() {
   console.log("toCanvas");
 
-  ctx.drawImage(video, -640, 20); 
-
   
-  ctx.drawImage(tache, -800, 400);
-  
+  ctx.drawImage(video, -640, 0); 
+  ctx.drawImage(tache, -480, 200);
 
-  document.querySelector('#show').src = canvas.toDataURL('image/webp');
 }
 
-
-video.addEventListener('click', snapshot, false);
-
+function saveImage() {
+	document.querySelector('#capture').src = canvas.toDataURL('image/webp');
+	document.querySelector('#capture').className = "popup show";
+}
